@@ -78,3 +78,5 @@ Optimization :-
 -> now in range [0…..j-1] you want to know how many “i” have their equation value as m*p2[i-1] - n*p1[i-1] == RHS; 
 
 -> [i…….j] -> if both d and z are coming 0 time in this subarray then also our algorithm will count it -> Subtract the count of subarrays where both d and z are coming 0 times from the final answer 
+
+
