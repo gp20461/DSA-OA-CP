@@ -1,0 +1,42 @@
+Easy version :- Given an array of size “N”; and a number “D”; please tell me how many subarrays in the array have “D” occurring for “M” times; 
+
+-> [2 5 2 5 2 5 1 1] D = 5 M = 2;
+
+-> Brute Force :- Generate all subarrays and check how many subarrays are valid; 
+
+-> https://www.jdoodle.com/ia/1AVU 
+
+-> TC - O(N^2.) 
+-> Takes O(1) size space;
+
+Optimization :-> prefix array 
+
+-> p[]
+-> p[i] = how many times “D” is coming in b from range [1…i] 
+
+-> p[] is pre-calculated;
+
+-> we travel at each index j; and try to count how many valid subarrays end at index “j”; 
+
+-> do this for each index j; and total is the answer 
+-> p[j] tells us how many times “d” is coming from 1 to j; 
+-> so any index i if it exists such that p[i] == p[j] - m; then [i+1….j] is valid subarray because “d” is coming “m” times in the [i+1…j]; 
+
+-> p[i] == p[j] - m ; 
+-> p[j] - p[i] == m; 
+-> frequency of d(1…..j) - frequency of d(      1……i) = m;
+
+-> Logic - https://www.jdoodle.com/ia/1AW5 
+
+-> When you are at index j; you know p[j]; p[i]==p[j]-m;
+-> z == p[j]-m; so if you know how many times “z” is coming in range [0…….j-1] your problem is solved; 
+
+-> hashmap G
+<prefix,frequency>
+
+https://www.jdoodle.com/ia/1AWb 
+
+TC - O(N)
+Takes O(N.) size space; 
+
+Final space optimization:-> Remove the prefix; array -> can be solved using only hashmap space no need of prefix array space; 
